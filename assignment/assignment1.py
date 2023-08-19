@@ -6,7 +6,7 @@
 # 각 유저에 대한 출력 정보 형식은 다음과 같습니다: 김네모은 25살 남성이고 직업은 학생입니다
 user1 = {
     "name": "김동그라미",
-    "age": 21,
+    "age": 24,
     "gender": "여성",
 }
 user2 = {
@@ -21,12 +21,36 @@ user3 = {
 }
 users = [user1, user2, user3]
 
+
+
+def decide_state(users):
+    if users.get('gender') == '여성':
+        if users.get('age') <= 23:
+            return '학생'
+        else:
+            return '직장인'
+    else:
+        if users.get('age') <= 25:
+            return '학생'
+        else:
+            return '직장인'
+        
+for i in users:
+    name = i['name']
+    age = i['age']
+    gender = i['gender']
+    state = decide_state(i)
+    print(f"{name}은 {age}살 {gender}이고 직업은 {state}입니다.")
 # 과제2
 # 2 X 1 = 2
 # 2 X 2 = 4
 # …
 # 9 X 9 = 81
 # 위와 같은 수식을(구구단) 9줄 이하의 코드로 콘솔에 출력하세요
+
+for number in range(2,10):
+    for number2 in range(1,10):
+       print(number, "X", number2, "=", number * number2)
 
 # 과제3
 # feat/assignment-1 브랜치를 생성해주세요
