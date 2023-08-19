@@ -4,43 +4,8 @@
 # 남성의 경우, 25세 이하는 직업이 학생, 아니라면 직장인 입니다
 # 각 유저의 직장은 함수를 활용해서 결정해주세요
 # 각 유저에 대한 출력 정보 형식은 다음과 같습니다: 김네모은 25살 남성이고 직업은 학생입니다
-user1 = {
-    "name": "김동그라미",
-    "age": 24,
-    "gender": "여성",
-}
-user2 = {
-    "name": "김네모",
-    "age": 25,
-    "gender": "남성",
-}
-user3 = {
-    "name": "김세모",
-    "age": 29,
-    "gender": "남성",
-}
-users = [user1, user2, user3]
 
 
-
-def decide_state(users):
-    if users.get('gender') == '여성':
-        if users.get('age') <= 23:
-            return '학생'
-        else:
-            return '직장인'
-    else:
-        if users.get('age') <= 25:
-            return '학생'
-        else:
-            return '직장인'
-        
-for i in users:
-    name = i['name']
-    age = i['age']
-    gender = i['gender']
-    state = decide_state(i)
-    print(f"{name}은 {age}살 {gender}이고 직업은 {state}입니다.")
 # 과제2
 # 2 X 1 = 2
 # 2 X 2 = 4
@@ -48,9 +13,6 @@ for i in users:
 # 9 X 9 = 81
 # 위와 같은 수식을(구구단) 9줄 이하의 코드로 콘솔에 출력하세요
 
-for number in range(2,10):
-    for number2 in range(1,10):
-       print(number, "X", number2, "=", number * number2)
 
 # 과제3
 # feat/assignment-1 브랜치를 생성해주세요
@@ -61,7 +23,7 @@ for number in range(2,10):
 # 최종적으로 완성된 feat/assignment-1 브랜치를 push 하세요
 # 깃허브에서 pull request를 squash 모드로 실행하세요
 # 마지막으로 깃허브의 feat/assignment-1 브랜치와 로컬의 feat/assignment-1 브랜치를 모두 삭제하세요
-# 명령어는 아래를 참고하세요
+# 깃 명령어는 아래를 참고하세요
 
 # 깃 명령어
 # git init: 임의의 폴더를 깃으로 관리하기 시작합니다
