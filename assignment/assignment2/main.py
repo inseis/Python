@@ -17,7 +17,7 @@ if __name__ == "__main__":
         nickname = input("별명을 입력해주세요: ")
         information = [email, password, nickname]
         write_csv_file(csv_file_name, information)
-        all_information.append(information)  # 새 정보 추가
+        all_information.append(information)
 
         print("모든 정보:")
         for info in all_information:
@@ -27,7 +27,7 @@ if __name__ == "__main__":
             random_users = random.sample(all_information, 2)
             print("랜덤 추출 2명:")
             for random_user in random_users:
-                print(random_user[2])  # 사용자의 이름 출력
+                print(random_user[2])
 
 
 
