@@ -1,14 +1,17 @@
+import csv
+
 def read_csv_file(csv_file_name):
-    """ csv 파일을 읽고 모든 row를 배열에 담아서 리턴합니다
-    """
     read_contents = []
+    with open(csv_file_name, "r", encoding="utf8", newline="\n") as file_reader:
+        csv_file_reader = csv.reader(file_reader)
+        for row in csv_file_reader:
+            read_contents.append(row)
     return read_contents
 
-
 def write_csv_file(csv_file_name, contents):
-    """ contents 배열에 들어있는 row를 csv 파일에 추가합니다
-    """
-    pass
+    with open(csv_file_name, "a", encoding="utf8", newline="\n") as file_writer:
+        csv_file_writer = csv.writer(file_writer)
+        csv_file_writer.writerow(contents)
 
 
 if __name__ == "__main__":
