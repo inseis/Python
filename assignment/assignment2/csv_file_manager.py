@@ -1,22 +1,17 @@
 import csv
+
 def read_csv_file(csv_file_name):
-    file_reader = open("users.csv", "r", encoding="utf8", newline="\n")
-    csv_file_reader = csv.reader(file_reader)
-    for row in csv_file_reader:
-        print(row)
     read_contents = []
+    with open(csv_file_name, "r", encoding="utf8", newline="\n") as file_reader:
+        csv_file_reader = csv.reader(file_reader)
+        for row in csv_file_reader:
+            read_contents.append(row)
     return read_contents
 
-
 def write_csv_file(csv_file_name, contents):
-    file_writer = open("users.csv", "a", encoding="utf8", newline="\n")
-    csv_file_writer = csv.writer(file_writer)
-    email = input("이메일을 입력해주세요: ")
-    password = input("비밀번호를 입력해주세요: ")
-    nickname = input("별명을 입력해주세요: ")
-    csv_file_writer.writerow([email, password, nickname])
-    file_writer.close()
-
+    with open(csv_file_name, "a", encoding="utf8", newline="\n") as file_writer:
+        csv_file_writer = csv.writer(file_writer)
+        csv_file_writer.writerow(contents)
 
 
 if __name__ == "__main__":

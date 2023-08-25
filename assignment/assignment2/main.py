@@ -1,43 +1,37 @@
 from csv_file_manager import read_csv_file, write_csv_file
-import csv
 import random
 
 if __name__ == "__main__":
     csv_file_name = "users.csv"
 
-    while True:
+    all_information = read_csv_file(csv_file_name)
+    print("모든 정보:")
+    for info in all_information:
+        print(info)
+
+    for i in range(6):  # 6명의 사용자 정보 입력 받기
         email = input("이메일을 입력해주세요 (exit 입력 시 종료): ")
-        if email == "exit":
+        if email.lower() == "exit":
             break
         password = input("비밀번호를 입력해주세요: ")
         nickname = input("별명을 입력해주세요: ")
         information = [email, password, nickname]
         write_csv_file(csv_file_name, information)
+        all_information.append(information)  # 새 정보 추가
 
-        all_information = read_csv_file(csv_file_name)
-        print("모든 정보")
-        for information in all_information:
-            print(information)
+        print("모든 정보:")
+        for info in all_information:
+            print(info)
 
-        random_users = []
         if len(all_information) >= 6:
-            while len(random_users) < 2:
-                random_index = random.randint(0, len(all_information) - 1)
-                random_user = all_information[random_index]
-
-                is_user_selected = False
-                for user in random_users:
-                    if user == random_user:
-                        is_user_selected = True
-                        break
-
-                if is_user_selected is False:
-                    random_users.append(random_user)
-
+            random_users = random.sample(all_information, 2)
             print("랜덤 추출 2명:")
             for random_user in random_users:
                 print(random_user[2])  # 사용자의 이름 출력
-            break
+
+
+
+
 
 
 
