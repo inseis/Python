@@ -1,5 +1,6 @@
 import csv
 
+
 def read_csv_file(csv_file_name):
     read_contents = []
     with open(csv_file_name, "r", encoding="utf8", newline="\n") as file_reader:
@@ -7,6 +8,7 @@ def read_csv_file(csv_file_name):
         for row in csv_file_reader:
             read_contents.append(row)
     return read_contents
+
 
 def write_csv_file(csv_file_name, contents):
     with open(csv_file_name, "a", encoding="utf8", newline="\n") as file_writer:
