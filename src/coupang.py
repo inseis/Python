@@ -48,28 +48,9 @@ class Buyer:
 
 buyer = Buyer()
 
-# 5. buyer가 seller의 product 5개를 모두 구매하세요 (잔액 부족으로 구매가 실패해야 합니다)
+
 for product in products:
     if buyer.buy(seller, product):
         print(f"{buyer.balance}원으로 {product.title}를 구매했습니다.")
     else:
         print(f"잔액이 부족하여 {product.title} 구매에 실패했습니다.")
-
-if buyer.buy(seller, products[0]):
-    print(f"{buyer.balance}원으로 {products[0].title}를 구매했습니다.")
-else:
-    print(f"잔액이 부족하여 {products[0].title} 구매에 실패했습니다.")
-
-print(f"Seller의 storage: {[product.title for product in seller.storage]}")
-print(f"Seller의 잔액: {seller.balance}원")
-print(f"Buyer의 purchases: {buyer.purchases}")
-
-
-print("구매 내역:")
-for product_id in buyer.history:
-    for product in products:
-        if product.productId == product_id:
-            print(f" {product_id}:")
-            buyer.print_product_info(product)
-            print()
-            break
