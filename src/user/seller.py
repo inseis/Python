@@ -2,19 +2,14 @@ from src.user.user import User
 
 
 class Seller(User):
-    def __init__(self, email, password, nickname, money, coupon):
-        self.__email = self
-        self.__password = password
-        self.__nickname = nickname
-        self.__money = money
-        self.__coupon = coupon
-        self.__accountId = None
+    def __init__(self, email, password, nickname, money):
+        # 부모 사용
+        super().__init__(email, password, nickname, money)
         self.__storage = []
 
-    def add_product(self, product_name, product_price, product_id):
-        product = {"name": product_name, "price": product_price, "product_id": product_id}
-        self.__storage.append(product)
-        return product
+    def add_product(self, product_id):
+        self.__storage.append(product_id)
+
     def delete_product(self, product_id):
         for product in self.__storage:
             if product["product_id"] == product_id:
@@ -22,6 +17,7 @@ class Seller(User):
                 return True
         return False
         _
+
     def sell(self, item_name, item_price, product_id):
         self.__money = self.__money + item_price
         self.__history.append(product_id)
@@ -39,6 +35,7 @@ class Seller(User):
 
     def get_storage(self):
         return self.__storage
+
 
 if __name__ == "__main__":
     pass

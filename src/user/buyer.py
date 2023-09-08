@@ -2,16 +2,10 @@ from src.user.user import User
 
 
 class Buyer(User):
-
-    def __init__(self, email, password, nickname, money, coupon):
-        self.__email = self
-        self.__password = password
-        self.__nickname = nickname
-        self.__money = money
-        self.__coupon = coupon
-        self.__accountId = None
+    def __init__(self, email, password, nickname, money):
+        # 부모 사용
+        super().__init__(email, password, nickname, money)
         self.__history = []
-        self.__cart = []
 
     def buy(self, item_name, item_price, product_id):
         if self.__money >= item_price:
@@ -40,5 +34,6 @@ class Buyer(User):
         for item in self.__cart:
             print(f"{item['name']}, {item['price']}원")
 
-    if __name__ == "__main__":
-        pass
+
+if __name__ == "__main__":
+    pass

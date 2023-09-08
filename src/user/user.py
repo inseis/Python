@@ -1,14 +1,28 @@
 class User(object):
+    # 클래스 속성
+    __auto_increment_number = 0
+
+    # 클래스 메소드
+    @classmethod
+    def increment_user_id(cls):
+        cls.__auto_increment_number += 1
+
     # 생성자
-    def __init__(self, email, password, nickname, money, coupon):
-        # 데이터: 인스턴스 속성
+    def __init__(self, email, password, nickname, money):
+        # 클래스 속성 초기화
+        User.increment_user_id()
+
+        # 인스턴스 속성 초기화
+        self.__user_id = User.__auto_increment_number
         self.__email = email
         self.__password = password
         self.__nickname = nickname
         self.__money = money
-        self.__coupon = coupon
 
-    # 함수: 인스턴스 메소드
+    # 인스턴스 메소드
+    def get_user_id(self):
+        return self.__user_id
+
     def get_email(self):
         return self.__email
 
@@ -32,12 +46,6 @@ class User(object):
 
     def set_money(self, new_money):
         self.__money = new_money
-
-    def get_coupon(self):
-        return self.__coupon
-
-    def set_coupon(self, new_coupon):
-        self.__coupon = new_coupon
 
 
 if __name__ == "__main__":
